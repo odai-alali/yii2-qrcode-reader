@@ -4,7 +4,7 @@
  * License for Tournamo.
  */
 
-namespace odaialali\qrcodereder;
+namespace odaialali\qrcodereader;
 
 use yii\web\AssetBundle;
 /**
@@ -14,14 +14,18 @@ use yii\web\AssetBundle;
  */
 class QrReaderAsset extends AssetBundle{
     //put your code here
+//    public $sourcePath = '@vendor/odaialali/yii2-qrcode-reader';
     public $css = [
-        'qrcodereader.css',
+        'css/qrcodereader.css',
     ];
     public $js = [
-        'html5_qrcode.min.js',
+        'js/lib/html5-qrcode.min.js',
+    ];
+    public $depends = [
+        'yii\web\YiiAsset',
     ];
     public function init() {
         parent::init();
-        $this->sourcePath = __DIR__.'/js/lib';
+        $this->sourcePath = __DIR__;
     }
 }
