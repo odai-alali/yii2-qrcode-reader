@@ -20,12 +20,16 @@ class QrReaderAsset extends AssetBundle{
     ];
     public $js = [
         'js/lib/html5-qrcode.min.js',
+        'js/qrcode-reader.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
     ];
+    public $options = [
+        'forceCopy' => true
+    ];
     public function init() {
         parent::init();
-        $this->sourcePath = __DIR__.'asset';
+        $this->sourcePath = __DIR__.'/asset';
     }
 }
