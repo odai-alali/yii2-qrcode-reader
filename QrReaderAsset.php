@@ -26,6 +26,6 @@ class QrReaderAsset extends AssetBundle{
     ];
     public function init() {
         parent::init();
-        $this->sourcePath = __DIR__;
+        $this->sourcePath = __DIR__.'asset';
     }
 }

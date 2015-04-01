@@ -15,7 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "odaialali\\qrcodereder\\": ""
+            "odaialali\\qrcodereader\\": ""
         }
     }
 }

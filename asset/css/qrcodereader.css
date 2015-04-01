@@ -1,0 +1,24 @@
+/*
+License for Tournamo.
+*/
+/* 
+    Created on : Mar 31, 2015, 10:16:21 PM
+    Author     : Odai Alali <odai.alali@gmail.com>
+*/
+.qrcode-reader-container{
+    position: absolute;
+    top:0;
+    width: 100%;
+    height:100%;
+    background: rgba(200,200,200,0.5);
+    z-index:2000;
+}
+.qrcode-reader-container .reader{
+    position: relative;
+}
+.qrcode-reader-container .reader .result{
+    position: absolute;
+    top: 45%;
+    color:#fff;
+    background: #000;
+} 
