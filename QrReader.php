@@ -9,20 +9,21 @@ use yii\helpers\Html;
  */
 class QrReader extends \yii\base\Widget
 {
-    public $width;
-    public $height;
-    
+    public $readerWidth;
+    public $readerHeight;
+    public $name;
+    public $options;
     public $successCallback;
     
     public function init() {
-        if($this->width === null){
-            $this->width = '300px';
+        if($this->readerWidth === null){
+            $this->readerWidth = '300px';
         }
-        if($this->height === null){
-            $this->height = '250px';
+        if($this->readerHeight === null){
+            $this->readerHeight = '250px';
         }
         if($this->successCallback === null){
-            $this->successCallback = 'function(data){}';
+            $this->successCallback = 'function(data){console.log(data)}';
         }
         QrReaderAsset::register($this->getView());
     }
@@ -31,11 +32,13 @@ class QrReader extends \yii\base\Widget
     {
         $this->registerJsOptions();
         
-        return Html::tag('div', '', [
-            'id' => $this->id,
+        echo Html::tag('div', '', [
+            'id' => $this->id."-reader",
             'class' => 'qr-reader',
-            'style' => "width:$this->width;height:$this->height;"
+            'style' => "width:$this->readerWidth;height:$this->readerHeight;"
         ]);
+        $this->options['id'] = $this->id;
+        echo Html::input('text', $this->name, '', $this->options);
         
 //        return Html::tag('div', $reader, [
 //            'class' => 'qrcode-reader-container'
@@ -44,14 +47,7 @@ class QrReader extends \yii\base\Widget
     
     protected function registerJsOptions(){
         $view = $this->getView();
-        $view->registerJs("$('#$this->id').html5_qrcode("
-                . "$this->successCallback"
-                . ","
-                . "function(error){"
-                . "console.log(error)"
-                . "}, function(videoError){"
-                . "console.log(videoError)"
-                . "}"
-                . ");");
+        $view->registerJs("$('#$this->id').yii2qrcodereader({readerId: '".$this->id."-reader',readerWidth: '".$this->readerWidth."',readerHeight: '".$this->readerHeight."',".
+            "successCallback: ".$this->successCallback."})");
     }
 }
