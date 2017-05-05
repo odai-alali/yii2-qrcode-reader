@@ -1,3 +1,5 @@
+THIS REPO IS ONLY FOR EXPIREMENT, DO NOT USE IN REAL PROJECTS 
+
 Yii2 QR Code Reader
 ===================
 Yii2 widget for reading qr code using laptop or phone camera
